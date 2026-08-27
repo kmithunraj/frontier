@@ -7,9 +7,9 @@
   --fg: #f3f1ea;
   --fg-muted: #a8a49a;
   --fg-dim: #6e6a62;
-  --accent: #c6f04d;
-  --accent-soft: rgba(198, 240, 77, 0.12);
-  --accent-border: rgba(198, 240, 77, 0.35);
+  --accent: #75fe72;
+  --accent-soft: rgba(117, 254, 114, 0.14);
+  --accent-border: rgba(117, 254, 114, 0.45);
   --blue: #7a9bb8;
   --orange: #e8956a;
   --red: #c45c5c;
@@ -141,7 +141,7 @@ body {
 }
 
 .btn-primary:hover {
-  background: #d4f76a;
+  background: #9aff97;
   transform: translateY(-1px);
 }
 

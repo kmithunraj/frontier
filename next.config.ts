@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
   turbopack: {
     root,
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "static.levocdn.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;

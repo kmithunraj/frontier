@@ -30,7 +30,7 @@ export function Navbar() {
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled
-          ? "bg-[rgba(9,9,9,0.82)] backdrop-blur-md border-b border-border"
+          ? "bg-[rgba(9,9,9,0.88)] backdrop-blur-md border-b border-border"
           : "bg-transparent border-b border-transparent"
       )}
     >
@@ -39,16 +39,16 @@ export function Navbar() {
         aria-label="Primary"
       >
         <a href="#top" className="flex items-center gap-3 min-w-0 group">
-          <span className="font-display font-bold tracking-tight text-sm sm:text-base text-foreground group-hover:text-accent transition-colors">
+          <span className="font-display font-bold tracking-tight text-sm sm:text-base group-hover:text-accent transition-colors">
             HEADSTART
           </span>
           <span className="hidden sm:block h-4 w-px bg-border-strong" aria-hidden />
-          <span className="font-mono-meta text-[0.65rem] sm:text-[0.7rem] tracking-[0.16em] text-muted truncate">
-            {event.name} {event.year}
+          <span className="font-mono-meta text-[0.65rem] tracking-[0.14em] text-muted truncate">
+            FRONTIER TECH WEEK
           </span>
         </a>
 
-        <ul className="hidden lg:flex items-center gap-6 xl:gap-7">
+        <ul className="hidden lg:flex items-center gap-6">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
@@ -62,12 +62,15 @@ export function Navbar() {
         </ul>
 
         <div className="flex items-center gap-2">
-          <a href={event.registerUrl} className="btn-primary !min-h-10 !px-4 !text-[0.68rem]">
+          <a
+            href={event.registerUrl}
+            className="btn-primary !min-h-10 !px-4 !text-[0.68rem]"
+          >
             Register
           </a>
           <button
             type="button"
-            className="lg:hidden inline-flex items-center justify-center size-11 border border-border text-foreground"
+            className="lg:hidden inline-flex items-center justify-center size-11 border border-border"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((v) => !v)}
@@ -83,17 +86,16 @@ export function Navbar() {
             initial={reduce ? false : { opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
             exit={reduce ? undefined : { opacity: 0, y: -8 }}
-            transition={{ duration: 0.25 }}
             className="lg:hidden fixed inset-x-0 top-16 bottom-0 bg-[rgba(9,9,9,0.97)] backdrop-blur-xl border-t border-border"
           >
             <div className="section-pad py-8 flex flex-col h-full">
-              <ul className="flex flex-col gap-1">
+              <ul className="flex flex-col">
                 {navLinks.map((link, i) => (
                   <li key={link.href}>
                     <a
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-4 border-b border-border font-display text-2xl font-semibold tracking-tight"
+                      className="flex items-center justify-between py-4 border-b border-border font-display text-2xl font-semibold"
                     >
                       <span>{link.label}</span>
                       <span className="font-mono-meta text-[0.65rem] text-dim">
@@ -103,22 +105,13 @@ export function Navbar() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto flex flex-col gap-3 pb-8">
-                <a
-                  href={event.registerUrl}
-                  className="btn-primary w-full"
-                  onClick={() => setOpen(false)}
-                >
-                  Register Now
-                </a>
-                <a
-                  href={event.partnerUrl}
-                  className="btn-secondary w-full"
-                  onClick={() => setOpen(false)}
-                >
-                  Become a Partner
-                </a>
-              </div>
+              <a
+                href={event.registerUrl}
+                className="btn-primary w-full mt-auto mb-8"
+                onClick={() => setOpen(false)}
+              >
+                Register Interest
+              </a>
             </div>
           </motion.div>
         ) : null}

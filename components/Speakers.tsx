@@ -1,91 +1,56 @@
-"use client";
-
-import { useMemo, useState } from "react";
-import { speakerFilters, speakers, type SpeakerFilter } from "@/lib/data";
+import Image from "next/image";
+import { speakers } from "@/lib/data";
 import { Reveal, SectionHeading } from "@/components/ui/Reveal";
-import { cn } from "@/lib/utils";
 
 export function Speakers() {
-  const [filter, setFilter] = useState<SpeakerFilter>("ALL");
-
-  const filtered = useMemo(() => {
-    if (filter === "ALL") return speakers;
-    return speakers.filter((s) => s.category === filter);
-  }, [filter]);
-
   return (
     <section
       id="speakers"
       className="relative py-24 md:py-32 section-pad border-b border-border"
     >
       <div className="container-page">
-        <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-12">
-          <SectionHeading
-            eyebrow="Speakers"
-            title="People worth showing up for."
-            description="Speaker lineup announcing soon. No invented names — cards will fill as confirmations land."
-          />
-          <a href="#speakers" className="btn-secondary self-start lg:self-auto">
-            View All Speakers
-          </a>
-        </div>
-
-        <div
-          role="toolbar"
-          aria-label="Filter speakers"
-          className="flex flex-wrap gap-2 mb-10"
-        >
-          {speakerFilters.map((f) => (
-            <button
-              key={f}
-              type="button"
-              onClick={() => setFilter(f)}
-              aria-pressed={filter === f}
-              className={cn(
-                "min-h-10 px-3 sm:px-4 font-mono-meta text-[0.65rem] tracking-[0.14em] uppercase border transition-colors",
-                filter === f
-                  ? "border-accent text-accent bg-accent-soft"
-                  : "border-border text-muted hover:text-foreground"
-              )}
-            >
-              {f}
-            </button>
-          ))}
-        </div>
+        <SectionHeading
+          eyebrow="From Bangalore Slush'D"
+          title="People who showed up."
+          description="Speakers from Bangalore Slush'D — the gathering that proved Headstart can bring this density to India. Frontier Tech Week speakers announcing soon."
+          className="mb-12"
+        />
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-          {filtered.map((speaker, i) => (
+          {speakers.map((speaker, i) => (
             <Reveal
-              key={speaker.id}
-              delay={i * 0.04}
-              className="group border border-border bg-elevated/30 overflow-hidden"
+              key={speaker.name}
+              delay={i * 0.03}
+              className="group border border-border bg-elevated/20 overflow-hidden"
             >
-              <div className="aspect-[4/5] bg-soft relative flex items-center justify-center overflow-hidden">
-                <div
-                  className="absolute inset-0 opacity-40"
-                  style={{
-                    background:
-                      "linear-gradient(135deg, rgba(198,240,77,0.12), transparent 50%, rgba(122,155,184,0.1))",
-                  }}
+              <div className="relative aspect-[3/4] bg-soft overflow-hidden">
+                <Image
+                  src={speaker.image}
+                  alt={speaker.name}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 25vw"
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                 />
-                <span className="font-mono-meta text-[0.65rem] tracking-[0.18em] uppercase text-dim relative z-[1]">
-                  Photo TBA
-                </span>
-              </div>
-              <div className="p-4 sm:p-5">
-                <p className="font-display text-base sm:text-lg font-bold tracking-tight">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                <p className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 font-display text-sm sm:text-base font-bold tracking-tight">
                   {speaker.name}
-                </p>
-                <p className="mt-1 text-xs sm:text-sm text-muted">
-                  {speaker.designation}
-                </p>
-                <p className="mt-3 font-mono-meta text-[0.6rem] tracking-[0.14em] uppercase text-accent">
-                  {speaker.category}
                 </p>
               </div>
             </Reveal>
           ))}
         </div>
+
+        <p className="mt-8 font-mono-meta text-[0.65rem] tracking-[0.14em] uppercase text-dim">
+          Source:{" "}
+          <a
+            href="https://www.blrslushd.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent hover:underline"
+          >
+            blrslushd.com
+          </a>
+        </p>
       </div>
     </section>
   );

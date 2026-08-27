@@ -2,8 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowDownRight } from "lucide-react";
-import { event, heroMeta } from "@/lib/data";
-import { IndiaNetwork } from "@/components/IndiaNetwork";
+import { bangaloreWeek, event } from "@/lib/data";
 
 export function Hero() {
   const reduce = useReducedMotion();
@@ -13,101 +12,88 @@ export function Hero() {
       id="top"
       className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden grain"
     >
-      <div className="absolute inset-0 grid-bg opacity-70" aria-hidden />
+      <div className="absolute inset-0 grid-bg opacity-60" aria-hidden />
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_30%,rgba(198,240,77,0.1),transparent_42%),radial-gradient(ellipse_at_15%_85%,rgba(122,155,184,0.08),transparent_40%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_at_80%_20%,rgba(117,254,114,0.16),transparent_42%),radial-gradient(ellipse_at_10%_90%,rgba(117,254,114,0.06),transparent_40%)]"
+        aria-hidden
+      />
+      <div
+        className="absolute right-[-10%] top-[15%] size-[55vmax] rounded-full border border-accent/20 opacity-40"
+        aria-hidden
+      />
+      <div
+        className="absolute right-[8%] top-[28%] size-[28vmax] rounded-full border border-accent/30 opacity-50"
         aria-hidden
       />
 
-      <div className="absolute inset-y-[8%] right-[-8%] w-[70%] md:w-[55%] lg:w-[48%] opacity-35 md:opacity-80 pointer-events-none">
-        <IndiaNetwork showLabels={false} className="h-full" />
-      </div>
-
-      <div className="relative z-[2] section-pad container-page pt-24 pb-14 md:pb-16 w-full">
-        <div className="max-w-3xl">
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.05 }}
-            className="eyebrow mb-5"
-          >
-            {event.presenter}
-          </motion.p>
-
-          <motion.h1
-            initial={reduce ? false : { opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-display font-extrabold text-[clamp(3.75rem,14vw,9rem)] leading-[0.86] tracking-[-0.045em]"
-          >
-            {event.name}
-          </motion.h1>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.18 }}
-            className="mt-3 font-mono-meta text-[0.75rem] sm:text-sm tracking-[0.28em] text-accent"
-          >
-            {event.year}
-          </motion.p>
-
-          <motion.p
-            initial={reduce ? false : { opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.22 }}
-            className="mt-6 md:mt-7 max-w-lg text-xl sm:text-2xl md:text-[1.75rem] font-display font-semibold tracking-tight text-balance leading-[1.2]"
-          >
-            {event.tagline}
-          </motion.p>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.3 }}
-            className="mt-5 flex flex-wrap items-center gap-x-4 gap-y-2 font-mono-meta text-[0.7rem] tracking-[0.14em] uppercase text-muted"
-          >
-            <span>{event.dates}</span>
-            <span className="text-dim" aria-hidden>
-              /
-            </span>
-            <span>{event.location}</span>
-          </motion.div>
-
-          <motion.div
-            initial={reduce ? false : { opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.45, delay: 0.36 }}
-            className="mt-8 flex flex-wrap gap-3"
-          >
-            <a href={event.registerUrl} className="btn-primary">
-              Register Now
-            </a>
-            <a href={event.exploreUrl} className="btn-secondary">
-              Explore the Experience
-              <ArrowDownRight size={14} aria-hidden />
-            </a>
-            <a href={event.partnerUrl} className="btn-ghost">
-              Become a Partner
-            </a>
-          </motion.div>
-        </div>
-
-        <motion.ul
-          initial={reduce ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.55, delay: 0.48 }}
-          className="mt-12 md:mt-16 pt-6 border-t border-border flex flex-wrap gap-x-6 gap-y-3"
+      <div className="relative z-[2] section-pad container-page pt-24 pb-16 w-full">
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4 }}
+          className="eyebrow mb-5"
         >
-          {heroMeta.map((item) => (
-            <li
-              key={item}
-              className="font-mono-meta text-[0.65rem] tracking-[0.18em] text-dim"
-            >
-              {item}
-            </li>
-          ))}
-        </motion.ul>
+          {event.presenter} PRESENTS
+        </motion.p>
+
+        <motion.h1
+          initial={reduce ? false : { opacity: 0, y: 22 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+          className="font-display font-extrabold text-[clamp(2.75rem,10vw,7.5rem)] leading-[0.9] tracking-[-0.04em] max-w-[11ch]"
+        >
+          {event.fullName}
+        </motion.h1>
+
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.18 }}
+          className="mt-6 max-w-xl text-xl sm:text-2xl font-display font-semibold tracking-tight text-balance"
+        >
+          {event.tagline}
+        </motion.p>
+
+        <motion.p
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.24 }}
+          className="mt-4 max-w-lg text-muted leading-relaxed"
+        >
+          {event.subTagline}
+        </motion.p>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.3 }}
+          className="mt-6 inline-flex flex-wrap items-center gap-x-3 gap-y-2 border border-accent/40 bg-accent-soft px-4 py-3"
+        >
+          <span className="font-mono-meta text-[0.65rem] tracking-[0.16em] uppercase text-accent">
+            First edition
+          </span>
+          <span className="text-dim" aria-hidden>
+            /
+          </span>
+          <span className="font-display font-semibold">
+            {bangaloreWeek.city} · {bangaloreWeek.dates}
+          </span>
+        </motion.div>
+
+        <motion.div
+          initial={reduce ? false : { opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.36 }}
+          className="mt-8 flex flex-wrap gap-3"
+        >
+          <a href={event.registerUrl} className="btn-primary">
+            Register Interest
+          </a>
+          <a href="#bangalore" className="btn-secondary">
+            Explore Bangalore
+            <ArrowDownRight size={14} aria-hidden />
+          </a>
+        </motion.div>
       </div>
     </section>
   );

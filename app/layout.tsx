@@ -24,11 +24,11 @@ const jetbrains = JetBrains_Mono({
 const siteUrl = "https://frontier.headstart.co.in";
 
 export const metadata: Metadata = {
-  title: `Headstart ${event.fullName} — India's Startup Ecosystem, Together`,
+  title: `Headstart ${event.fullName} — Bangalore · Dec 7–12, 2026`,
   description: event.description,
   metadataBase: new URL(siteUrl),
   openGraph: {
-    title: `Headstart ${event.fullName} — India's Startup Ecosystem, Together`,
+    title: `Headstart ${event.fullName} — Bangalore · Dec 7–12, 2026`,
     description: event.description,
     type: "website",
     locale: "en_IN",
@@ -36,15 +36,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `Headstart ${event.fullName} — India's Startup Ecosystem, Together`,
+    title: `Headstart ${event.fullName} — Bangalore · Dec 7–12, 2026`,
     description: event.description,
   },
   keywords: [
     "Headstart",
     "Frontier Tech Week",
+    "Bangalore",
+    "deep tech",
     "startup ecosystem India",
-    "founders",
-    "investors",
     "December 2026",
   ],
 };

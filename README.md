@@ -1,14 +1,15 @@
-# Headstart Frontier Tech Week 2026
+# Headstart Frontier Tech Week
 
-Official landing page for Headstart's flagship December 2026 ecosystem gathering in India.
+Launch site for Headstart's city-week format — starting in **Bangalore, December 7–12, 2026**.
 
-## Stack
+## Launch page flow
 
-- Next.js 16 (App Router)
-- TypeScript
-- Tailwind CSS v4
-- Framer Motion
-- Lucide React
+1. Hook + CTA  
+2. Manifesto / grand vision  
+3. Bangalore city week details  
+4. Coming soon — Chennai, Mumbai, Delhi  
+5. Speakers & partners from [Bangalore Slush'D](https://www.blrslushd.com/)  
+6. Previous gathering gallery / proof  
 
 ## Develop
 
@@ -17,21 +18,6 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
 ## Content
 
-All editable event copy, agenda, tracks, cities, FAQs and placeholders live in:
-
-```
-lib/data.ts
-```
-
-Replace TBA / placeholder values there as confirmations land. Do not invent speakers, partners, venues or final numbers in the UI.
-
-## Scripts
-
-- `npm run dev` — local development
-- `npm run build` — production build
-- `npm run start` — serve production build
-- `npm run lint` — ESLint
+Edit `lib/data.ts` for dates, cities, speakers, partners, and copy.
