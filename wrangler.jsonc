@@ -1,0 +1,33 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"main": ".open-next/worker.js",
+	"name": "frontier-tech-week",
+	"compatibility_date": "2026-10-01",
+	"compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+	"assets": {
+		"directory": ".open-next/assets",
+		"binding": "ASSETS"
+	},
+	"services": [
+		{
+			// Self-reference service binding — must match the worker name above.
+			"binding": "WORKER_SELF_REFERENCE",
+			"service": "frontier-tech-week"
+		}
+	],
+	"images": {
+		// next/image optimisation for speaker & partner photos.
+		"binding": "IMAGES"
+	},
+	"observability": {
+		"enabled": true
+	},
+	"vars": {
+		"EMAIL_FROM": "Headstart Frontier Tech Week <tickets@headstart.co.in>",
+		"EMAIL_REPLY_TO": "hello@headstart.co.in"
+	}
+	// Secrets — set with `npx wrangler secret put <NAME>` (never commit them):
+	//   SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY,
+	//   RAZORPAY_KEY_ID, RAZORPAY_KEY_SECRET, RAZORPAY_WEBHOOK_SECRET,
+	//   RESEND_API_KEY
+}

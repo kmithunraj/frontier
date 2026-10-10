@@ -9,7 +9,7 @@ export const event = {
     "A decentralized week where founders, investors, operators and builders converge — city by city.",
   description:
     "Frontier Tech Week is Headstart's city-week format for India's frontier tech ecosystem — starting in Bangalore, then coming to more cities.",
-  registerUrl: "#register",
+  registerUrl: "/register",
   partnerUrl: "#partners",
   citiesUrl: "#cities",
 };
